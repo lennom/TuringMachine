@@ -1,4 +1,4 @@
 Gamma: 0,1,b,#
 Sigma: 0,1
-Q: q1,q2,q3,q4,qac
-sig: (q1,0)=(q2,b,D), (q2,0)=(q3,1,D)
+Q: q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,qac
+sig: (q1,0)=(q2,b,D), (q1,1)=(q4,b,E), (q2,0)=(q3,1,D)

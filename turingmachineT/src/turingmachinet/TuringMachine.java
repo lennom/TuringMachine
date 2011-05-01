@@ -24,6 +24,7 @@ public class TuringMachine {
         tapeAlphabet = new ArrayList<Character>();
         states = new ArrayList<String>();
         transitionFunction = new ArrayList<ArrayTransition>();
+        
     }
 
 }

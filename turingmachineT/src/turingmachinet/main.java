@@ -18,6 +18,8 @@ public class main {
         Reader r = new Reader();
         r.readArchive("input.txt");
         r.passToTuringMachine(t);
+
+        TuringMachineGraph g = new TuringMachineGraph(t);
     }
     
     

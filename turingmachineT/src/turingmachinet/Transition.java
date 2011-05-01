@@ -16,8 +16,8 @@ public class Transition {
     public char arg2;
     public char direction;
     
-    Transition()
-    {
+    Transition() {
+        
         st1 = "";
         st2 = "";
     }
