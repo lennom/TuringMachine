@@ -181,7 +181,7 @@ public class Reader {
                 }     
                 t.transitionFunction.add(pt); 
             
-            /*for(int i = 0; i < t.transitionFunction.size(); i ++)
+            for(int i = 0; i < t.transitionFunction.size(); i ++)
             {
                 for(int j = 0; j < t.transitionFunction.get(i).tFunction.size(); j++)
                 {
@@ -192,7 +192,7 @@ public class Reader {
                             t.transitionFunction.get(i).tFunction.get(j).direction+"|"); 
                 }
                 System.out.println();
-            }*/
+            }
             
             
             
