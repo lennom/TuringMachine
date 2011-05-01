@@ -5,6 +5,7 @@
 package turingmachinet;
 
 import java.util.ArrayList;
+
 /**
  *
  * @author Leonardo
@@ -18,8 +19,8 @@ public class TuringMachine {
     public String initialState;
     public String acceptanceState;
     
-    TuringMachine() {
-        
+    TuringMachine() 
+    {
         alphabet = new ArrayList<Character>();
         tapeAlphabet = new ArrayList<Character>();
         states = new ArrayList<String>();
