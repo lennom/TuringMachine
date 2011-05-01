@@ -64,8 +64,36 @@ public class Reader {
            
             auxState = transicoes;
             tauxState = "";           
-            int resmt;
-            res = auxState.indexOf("), (");
+            res = auxState.indexOf("), ("); 
+            while(res != -1)
+            {
+                tauxState = auxState;
+                Transition tt = new Transition();
+                tt.st1 = tauxState.substring(1,tauxState.indexOf(','));
+                tauxState = tauxState.substring(tauxState.indexOf(',')+1);
+                tt.arg1.add(tauxState.charAt(0));
+                tauxState = tauxState.substring(tauxState.indexOf("=(")+1);
+                tt.st2 = tauxState.substring(1,tauxState.indexOf(','));
+                tauxState = tauxState.substring(tauxState.indexOf(',')+1);
+                tt.arg2.add(tauxState.charAt(0));
+                tauxState = tauxState.substring(tauxState.indexOf(",")+1);
+                tt.direction.add(tauxState.charAt(0));           
+                t.transitionFunction.add(tt);              
+                auxState = auxState.substring(res+3);
+                res = auxState.indexOf("), (");
+            }
+            Transition tt = new Transition();
+            tt.st1 = auxState.substring(1,auxState.indexOf(','));
+            auxState = auxState.substring(auxState.indexOf(',')+1);
+            tt.arg1.add(auxState.charAt(0));
+            auxState = auxState.substring(auxState.indexOf("=(")+1);
+            tt.st2 = auxState.substring(1,auxState.indexOf(','));
+            auxState = auxState.substring(auxState.indexOf(',')+1);
+            tt.arg2.add(auxState.charAt(0));
+            auxState = auxState.substring(auxState.indexOf(",")+1);
+            tt.direction.add(auxState.charAt(0));           
+            t.transitionFunction.add(tt);        
+            /*int resmt;
             while (res != -1)
             {
                 //peguei a string
@@ -126,73 +154,37 @@ public class Reader {
                 res = auxState.indexOf("), (");
             }
             tauxState =auxState;
-            
-            
-                //pegar o tausstate e desmembrar
-                resmt = tauxState.indexOf(");(");
-                ArrayTransition pt = new ArrayTransition();
-                if(resmt == -1){ // se nao tiver fitas múltiplas
-                    Transition tt = new Transition();
-                    tt.st1 = tauxState.substring(1,tauxState.indexOf(','));
-                    tauxState = tauxState.substring(tauxState.indexOf(',')+1);
-                    tt.arg1 = tauxState.charAt(0);
-                    tauxState = tauxState.substring(tauxState.indexOf("=(")+1);
-                    tt.st2 = tauxState.substring(1,tauxState.indexOf(','));
-                    tauxState = tauxState.substring(tauxState.indexOf(',')+1);
-                    tt.arg2 = tauxState.charAt(0);
-                    tauxState = tauxState.substring(tauxState.indexOf(",")+1);
-                    tt.direction = tauxState.charAt(0);
-                    //System.out.println(tt.st1+","+tt.arg1+"="+tt.st2+","+tt.arg2+","+tt.direction);          
-                    pt.tFunction.add(tt);                
-                }else { // se tiver fitas múltiplas       
-                    while(resmt != -1)
-                    {
-                        String ttauxState = tauxState;
-                        //System.out.println(ttauxState);
-                        Transition tt = new Transition();
-                        tt.st1 = ttauxState.substring(1,ttauxState.indexOf(','));
-                        ttauxState = ttauxState.substring(ttauxState.indexOf(',')+1);
-                        tt.arg1 = ttauxState.charAt(0);
-                        ttauxState = ttauxState.substring(ttauxState.indexOf("=(")+1);
-                        tt.st2 = ttauxState.substring(1,ttauxState.indexOf(','));
-                        ttauxState = ttauxState.substring(ttauxState.indexOf(',')+1);
-                        tt.arg2 = ttauxState.charAt(0);
-                        ttauxState = ttauxState.substring(ttauxState.indexOf(",")+1);
-                        tt.direction = ttauxState.charAt(0);
-                        //System.out.println(tt.st1+","+tt.arg1+"="+tt.st2+","+tt.arg2+","+tt.direction); 
-                        pt.tFunction.add(tt);
-               
-                        tauxState = tauxState.substring(resmt+2);
-                        resmt = tauxState.indexOf(");(");
-                    }
-                    //System.out.println(tauxState);
-                    Transition ttt = new Transition();
-                    ttt.st1 = tauxState.substring(1,tauxState.indexOf(','));
-                    tauxState = tauxState.substring(tauxState.indexOf(',')+1);
-                    ttt.arg1 = tauxState.charAt(0);
-                    tauxState = tauxState.substring(tauxState.indexOf("=(")+1);
-                    ttt.st2 = tauxState.substring(1,tauxState.indexOf(','));
-                    tauxState = tauxState.substring(tauxState.indexOf(',')+1);
-                    ttt.arg2 = tauxState.charAt(0);
-                    tauxState = tauxState.substring(tauxState.indexOf(",")+1);
-                    ttt.direction = tauxState.charAt(0);
-                    //System.out.println(tt.st1+","+tt.arg1+"="+tt.st2+","+tt.arg2+","+tt.direction); 
-                    pt.tFunction.add(ttt);      
-                }     
+            //pegar o tausstate e desmembrar
+            resmt = tauxState.indexOf(");(");
+            ArrayTransition pt = new ArrayTransition();
+            Transition tt = new Transition();
+            tt.st1 = tauxState.substring(1,tauxState.indexOf(','));
+            tauxState = tauxState.substring(tauxState.indexOf(',')+1);
+            tt.arg1 = tauxState.charAt(0);
+            tauxState = tauxState.substring(tauxState.indexOf("=(")+1);
+            tt.st2 = tauxState.substring(1,tauxState.indexOf(','));
+            tauxState = tauxState.substring(tauxState.indexOf(',')+1);
+            tt.arg2 = tauxState.charAt(0);
+            tauxState = tauxState.substring(tauxState.indexOf(",")+1);
+            tt.direction = tauxState.charAt(0);
+            //System.out.println(tt.st1+","+tt.arg1+"="+tt.st2+","+tt.arg2+","+tt.direction);          
+            pt.tFunction.add(tt);   
+                // if(resmt == -1){ // se nao tiver fitas múltiplas
+                //}else { // se tiver fitas múltiplas         
+                // }     
                 t.transitionFunction.add(pt); 
-            
-            for(int i = 0; i < t.transitionFunction.size(); i ++)
+            */
+            /*for(int i = 0; i < t.transitionFunction.size(); i ++)
             {
-                for(int j = 0; j < t.transitionFunction.get(i).tFunction.size(); j++)
-                {
-                    System.out.print(t.transitionFunction.get(i).tFunction.get(j).st1+","+
-                            t.transitionFunction.get(i).tFunction.get(j).arg1+"="+
-                            t.transitionFunction.get(i).tFunction.get(j).st2+","+
-                            t.transitionFunction.get(i).tFunction.get(j).arg2+","+
-                            t.transitionFunction.get(i).tFunction.get(j).direction+"|"); 
-                }
+                System.out.print("("+t.transitionFunction.get(i).st1+",");
+                System.out.print(t.transitionFunction.get(i).arg1+")=");
+                System.out.print("("+t.transitionFunction.get(i).st2+",");
+                System.out.print(t.transitionFunction.get(i).arg2+",");
+                System.out.print(t.transitionFunction.get(i).direction+")");
+                
+
                 System.out.println();
-            }
+            }*/
             
             
             

@@ -15,7 +15,7 @@ public class TuringMachine {
     public ArrayList<String> states;
     public ArrayList<Character> alphabet;
     public ArrayList<Character> tapeAlphabet;
-    public ArrayList<ArrayTransition> transitionFunction;
+    public ArrayList<Transition> transitionFunction;
     public String initialState;
     public String acceptanceState;
     
@@ -24,7 +24,7 @@ public class TuringMachine {
         alphabet = new ArrayList<Character>();
         tapeAlphabet = new ArrayList<Character>();
         states = new ArrayList<String>();
-        transitionFunction = new ArrayList<ArrayTransition>();
+        transitionFunction = new ArrayList<Transition>();
     }
 
 }

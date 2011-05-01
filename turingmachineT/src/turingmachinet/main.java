@@ -26,6 +26,8 @@ public class main {
         Reader r = new Reader();
         r.readArchive("input.txt");
         r.passToTuringMachine(t);
+        
+        //PanelTM p = new PanelTM();
     }
     
     

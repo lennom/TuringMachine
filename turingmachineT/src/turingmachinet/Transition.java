@@ -4,6 +4,8 @@
  */
 package turingmachinet;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Leonardo
@@ -11,15 +13,18 @@ package turingmachinet;
 public class Transition {
 
     public String st1;
-    public char arg1;
+    public ArrayList<Character> arg1;
     public String st2;
-    public char arg2;
-    public char direction;
+    public ArrayList<Character> arg2;
+    public ArrayList<Character> direction;
     
     Transition()
     {
         st1 = "";
         st2 = "";
+        arg1 = new ArrayList<Character>();
+        arg2 = new ArrayList<Character>();
+        direction = new ArrayList<Character>();
     }
     
 }
