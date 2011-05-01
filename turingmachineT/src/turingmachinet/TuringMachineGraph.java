@@ -17,7 +17,7 @@ public class TuringMachineGraph {
 
     TuringMachineGraph(TuringMachine t) {
 
-        t = tm;
+        tm = t;
         g = new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
         for(int i = 0; i < tm.states.size(); i++) {

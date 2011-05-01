@@ -20,6 +20,7 @@ public class main {
         r.passToTuringMachine(t);
 
         TuringMachineGraph g = new TuringMachineGraph(t);
+        g.testInput("0010");
     }
     
     
